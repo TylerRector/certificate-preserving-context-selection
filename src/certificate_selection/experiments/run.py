@@ -3,11 +3,19 @@ import subprocess
 import sys
 from pathlib import Path
 
-from storage import ROOT
+from certificate_selection.storage import ROOT
 
 
 def execute(script, *args):
-    subprocess.run([sys.executable, str(ROOT / script), *map(str, args)], check=True)
+    subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "certificate_selection.experiments." + Path(script).stem,
+            *map(str, args),
+        ],
+        check=True,
+    )
 
 
 def main():
@@ -24,7 +32,7 @@ def main():
         else ["recomp-nq", "recomp-hotpotqa", "qwen3-32b"]
     )
     if args.download:
-        from download_models import download
+        from certificate_selection.experiments.download_models import download
 
         for model in models:
             download(model, args.models)

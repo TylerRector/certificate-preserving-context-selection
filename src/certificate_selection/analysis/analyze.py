@@ -6,10 +6,17 @@ from pathlib import Path
 from scipy.stats import binomtest
 from transformers import AutoTokenizer
 
-from audit import audit_reader
-from core import SEEDS, Builder, generate, packet_check, reference, sha
-from dataset import integrity, source
-from storage import ROOT, TOKENIZER, load_jsonl, open_text
+from certificate_selection.audit import audit_reader
+from certificate_selection.core import (
+    SEEDS,
+    Builder,
+    generate,
+    packet_check,
+    reference,
+    sha,
+)
+from certificate_selection.dataset import integrity, source
+from certificate_selection.storage import ROOT, TOKENIZER, load_jsonl, open_text
 
 
 def load(p):

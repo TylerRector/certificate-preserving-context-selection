@@ -6,7 +6,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from storage import ROOT
+from certificate_selection.storage import ROOT
 
 LABELS = {
     "multi_candidate": "Multi-candidate certificate selection",
@@ -25,14 +25,15 @@ def csv_table(path, rows):
 
 
 def latex_table(path, headers, rows):
-    def escape(value):
-        return str(value).replace("%", r"\%").replace("_", r"\_").replace("&", r"\&")
 
-    lines = [r"\begin{tabular}{l" + "r" * (len(headers) - 1) + "}", r"\hline"]
-    lines.append(" & ".join(map(escape, headers)) + r" \\")
-    lines.append(r"\hline")
-    lines.extend(" & ".join(map(escape, row)) + r" \\" for row in rows)
-    lines.extend([r"\hline", r"\end{tabular}"])
+    def escape(value):
+        return str(value).replace("%", "\\%").replace("_", "\\_").replace("&", "\\&")
+
+    lines = ["\\begin{tabular}{l" + "r" * (len(headers) - 1) + "}", "\\hline"]
+    lines.append(" & ".join(map(escape, headers)) + " \\\\")
+    lines.append("\\hline")
+    lines.extend((" & ".join(map(escape, row)) + " \\\\" for row in rows))
+    lines.extend(["\\hline", "\\end{tabular}"])
     path.write_text("\n".join(lines) + "\n")
 
 
@@ -58,7 +59,14 @@ def main():
     ]
     for command in commands:
         subprocess.run(
-            [sys.executable, str(ROOT / command[0]), *command[1:]], env=env, check=True
+            [
+                sys.executable,
+                "-m",
+                "certificate_selection.analysis." + Path(command[0]).stem,
+                *command[1:],
+            ],
+            env=env,
+            check=True,
         )
     final = json.loads((args.out / "final/analysis.json").read_text())
     recomp = json.loads((args.out / "recomp/analysis.json").read_text())
@@ -115,7 +123,8 @@ def main():
     subprocess.run(
         [
             sys.executable,
-            str(ROOT / "figure.py"),
+            "-m",
+            "certificate_selection.analysis.figure",
             "--analysis",
             str(args.out / "final/analysis.json"),
             "--out",

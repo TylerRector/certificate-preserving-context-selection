@@ -8,8 +8,21 @@ from pathlib import Path
 import torch
 from transformers import AutoModel, AutoTokenizer
 
-from core import Builder, event_text, js, packet_check, reference, sha
-from storage import ROOT, TOKENIZER, copy_records, load_jsonl
+from certificate_selection.core import (
+    Builder,
+    event_text,
+    js,
+    packet_check,
+    reference,
+    sha,
+)
+from certificate_selection.storage import (
+    ROOT,
+    TOKENIZER,
+    copy_records,
+    load_jsonl,
+    source_hashes,
+)
 
 
 def save(p, x):
@@ -112,10 +125,7 @@ def main():
         out / "manifest.json",
         {
             **manifest,
-            "adapter_sources": {
-                p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-                for p in Path(__file__).parent.glob("*.py")
-            },
+            "adapter_sources": source_hashes(),
             "torch": torch.__version__,
             "dtype": "float32 for compressor; original released weights",
             "methods": ["recomp_nq_anchored", "recomp_hotpotqa_anchored"],

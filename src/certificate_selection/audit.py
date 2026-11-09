@@ -1,6 +1,6 @@
 import re
 
-from core import generate, packet_check, reference, sha
+from certificate_selection.core import generate, packet_check, reference, sha
 
 
 def audit_reader(responses, jobs, episodes, builder, requests):
@@ -8,7 +8,7 @@ def audit_reader(responses, jobs, episodes, builder, requests):
     generations = {row["request_hash"]: row for row in requests}
     truths = {}
     for row in responses:
-        key = row["dataset"], row["id"], row["method"]
+        key = (row["dataset"], row["id"], row["method"])
         packet = packets[key]
         episode = episodes.get(row["id"])
         if episode is None:
@@ -20,7 +20,7 @@ def audit_reader(responses, jobs, episodes, builder, requests):
         assert truths[row["id"]] == row["truth"]
         events = packet["events"]
         source = {event["id"]: event for event in episode["events"]}
-        assert all(source[event["id"]] == event for event in events)
+        assert all((source[event["id"]] == event for event in events))
         tokens = builder.render(episode, events)
         assert tokens == packet["prompt_token_ids"]
         assert sha(tokens) == row["request_hash"]
@@ -35,12 +35,12 @@ def audit_reader(responses, jobs, episodes, builder, requests):
             == row["raw_output"]
         )
         matches = re.findall(
-            r"(?m)^FINAL:\s*(ALLOW|VIOLATION|UNKNOWN)\s*$", row["raw_output"]
+            "(?m)^FINAL:\\s*(ALLOW|VIOLATION|UNKNOWN)\\s*$", row["raw_output"]
         )
         prediction = matches[-1] if matches else "INVALID"
         assert prediction == row["prediction"]
         present = {event["id"] for event in events}
-        citations = set(re.findall(r"\b[eb][0-9a-f]{6,16}\b", row["raw_output"]))
+        citations = set(re.findall("\\b[eb][0-9a-f]{6,16}\\b", row["raw_output"]))
         fabricated = sorted(citations - present)
         retained = [
             event
@@ -60,8 +60,8 @@ def audit_reader(responses, jobs, episodes, builder, requests):
         grounded = (
             correct
             and cited_proof["certified"]
-            and cited_proof["possible"] == [truths[row["id"]]]
-            and not fabricated
+            and (cited_proof["possible"] == [truths[row["id"]]])
+            and (not fabricated)
         )
         assert row["grounded_correct"] == grounded
     return len(responses)

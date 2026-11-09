@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "certificate-preserving-context-selection"
+version = "0.1.0"
+description = "Reproducible experiments for certificate-preserving multi-agent oversight."
+requires-python = ">=3.11"
+dynamic = ["dependencies"]
+
+[project.optional-dependencies]
+inference = ["torch==2.10.0", "safetensors==0.7.0"]
+
+[project.scripts]
+reproduce-results = "certificate_selection.analysis.reproduce:main"
+run-experiments = "certificate_selection.experiments.run:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}

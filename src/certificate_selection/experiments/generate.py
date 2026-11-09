@@ -1,7 +1,6 @@
 import argparse
 import copy
 import datetime
-import hashlib
 import multiprocessing
 import os
 import time
@@ -10,9 +9,17 @@ from pathlib import Path
 
 from transformers import AutoTokenizer
 
-from core import METHODS, SEEDS, Builder, generate, packet_check, reference, sha
-from dataset import integrity, packet, source, tests
-from storage import ROOT, TOKENIZER, append, save
+from certificate_selection.core import (
+    METHODS,
+    SEEDS,
+    Builder,
+    generate,
+    packet_check,
+    reference,
+    sha,
+)
+from certificate_selection.dataset import integrity, packet, source, tests
+from certificate_selection.storage import ROOT, TOKENIZER, append, save, source_hashes
 
 WORK_BUILDER = None
 WORK_METHODS = None
@@ -152,10 +159,7 @@ def main():
         "data_randomness": "Four independent fixed seeds; root-specific hash streams; deterministic greedy model decoding",
         "primary_tests": ["certificate_vs_strong", "causal_pair_certificate_vs_strong"],
         "alpha_each": 0.025,
-        "source_hashes": {
-            f.name: hashlib.sha256(f.read_bytes()).hexdigest()
-            for f in Path(__file__).parent.glob("*.py")
-        },
+        "source_hashes": source_hashes(),
         "tokenizer_template_hash": sha(tok.chat_template),
         "trust": "Authenticated collector snapshots/receipts; no resistance to collector compromise",
         "reader_status": "exploratory",

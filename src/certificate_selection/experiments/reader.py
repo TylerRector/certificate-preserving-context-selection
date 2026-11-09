@@ -1,6 +1,5 @@
 import argparse
 import datetime
-import hashlib
 import json
 import re
 import signal
@@ -15,8 +14,8 @@ from transformers import (
     StoppingCriteriaList,
 )
 
-from core import SEEDS, Builder, js, packet_check, sha
-from storage import load_jsonl
+from certificate_selection.core import SEEDS, Builder, js, packet_check, sha
+from certificate_selection.storage import load_jsonl, source_hashes
 
 
 def save(p, x):
@@ -89,10 +88,7 @@ def main():
             },
             "data_manifest": json.loads((data / "manifest.json").read_text()),
             "seconds_limit": a.seconds,
-            "source_hashes": {
-                f.name: hashlib.sha256(f.read_bytes()).hexdigest()
-                for f in Path(__file__).parent.glob("*.py")
-            },
+            "source_hashes": source_hashes(),
         },
     )
     model = (

@@ -3,9 +3,17 @@ import unittest
 
 from transformers import AutoTokenizer
 
-from core import METHODS, SEEDS, Builder, generate, leaves, packet_check, reference
-from dataset import integrity, packet, tests
-from storage import TOKENIZER
+from certificate_selection.core import (
+    METHODS,
+    SEEDS,
+    Builder,
+    generate,
+    leaves,
+    packet_check,
+    reference,
+)
+from certificate_selection.dataset import integrity, packet, tests
+from certificate_selection.storage import TOKENIZER
 
 
 class CertificateTests(unittest.TestCase):
@@ -41,7 +49,7 @@ class CertificateTests(unittest.TestCase):
         current = by_id[frontier["heads"][head]]
         current["value"] = atom["equals"]
         episode["arity"] = 1
-        return episode, atom, current
+        return (episode, atom, current)
 
     def test_stale_fact_cannot_replace_snapshot_head(self):
         episode, atom, current = self.one_condition_world()
@@ -50,9 +58,9 @@ class CertificateTests(unittest.TestCase):
             if (
                 event["kind"] == "observation"
                 and event["channel"] == "status_tool"
-                and event["scope"] == atom["scope"]
-                and event["key"] == atom["key"]
-                and event["id"] != current["id"]
+                and (event["scope"] == atom["scope"])
+                and (event["key"] == atom["key"])
+                and (event["id"] != current["id"])
             ):
                 event["value"] = atom["equals"]
         self.assertEqual(reference(episode), "VIOLATION")

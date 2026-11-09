@@ -4,9 +4,9 @@ from pathlib import Path
 
 from transformers import AutoTokenizer
 
-from audit import audit_reader
-from core import Builder, packet_check, reference
-from storage import ROOT, TOKENIZER, load_jsonl, open_text
+from certificate_selection.audit import audit_reader
+from certificate_selection.core import Builder, packet_check, reference
+from certificate_selection.storage import ROOT, TOKENIZER, load_jsonl, open_text
 
 
 def load(p):

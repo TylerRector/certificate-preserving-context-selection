@@ -5,7 +5,7 @@ from pathlib import Path
 
 from huggingface_hub import snapshot_download
 
-from storage import ROOT, save
+from certificate_selection.storage import ROOT, save
 
 
 def checksum(path):

@@ -1,7 +1,7 @@
 import copy
 import random
 
-from core import (
+from certificate_selection.core import (
     METHODS,
     SEEDS,
     generate,

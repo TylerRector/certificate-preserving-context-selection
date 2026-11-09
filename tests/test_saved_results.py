@@ -1,8 +1,8 @@
 import json
 import unittest
 
-from core import SEEDS, packet_check
-from storage import ROOT, load_jsonl
+from certificate_selection.core import SEEDS, packet_check
+from certificate_selection.storage import ROOT, load_jsonl
 
 
 class SavedResultsTests(unittest.TestCase):
@@ -17,29 +17,31 @@ class SavedResultsTests(unittest.TestCase):
             self.assertEqual(len(method), 2048)
             self.assertEqual(
                 {
-                    seed: sum(row["seed"] == seed for row in method.values())
+                    seed: sum((row["seed"] == seed for row in method.values()))
                     for seed in SEEDS
                 },
                 {seed: 512 for seed in SEEDS},
             )
         for name in ["multi_candidate", "certificate_greedy"]:
             self.assertEqual(
-                sum(row["certified"] for row in methods[name].values()), 1966
+                sum((row["certified"] for row in methods[name].values())), 1966
             )
             self.assertEqual(
-                sum(row["condition_kept"] for row in methods[name].values()), 5766
+                sum((row["condition_kept"] for row in methods[name].values())), 5766
             )
             self.assertEqual(
-                sum(row["condition_total"] for row in methods[name].values()), 13560
+                sum((row["condition_total"] for row in methods[name].values())), 13560
             )
         self.assertTrue(
             all(
-                row["certified"] == methods["certificate_greedy"][root]["certified"]
-                for root, row in methods["multi_candidate"].items()
+                (
+                    row["certified"] == methods["certificate_greedy"][root]["certified"]
+                    for root, row in methods["multi_candidate"].items()
+                )
             )
         )
         self.assertEqual(
-            sum(row["certified"] for row in methods["okapi_bm25"].values()), 0
+            sum((row["certified"] for row in methods["okapi_bm25"].values())), 0
         )
 
     def test_preliminary_external_certificates(self):
@@ -50,7 +52,7 @@ class SavedResultsTests(unittest.TestCase):
         self.assertEqual(len(episodes), 8)
         self.assertEqual(
             {
-                seed: sum(ep["seed"] == seed for ep in episodes.values())
+                seed: sum((ep["seed"] == seed for ep in episodes.values()))
                 for seed in SEEDS
             },
             {seed: 2 for seed in SEEDS},
@@ -66,8 +68,10 @@ class SavedResultsTests(unittest.TestCase):
             self.assertEqual(len(packets), 8)
             self.assertEqual(
                 sum(
-                    packet_check(episodes[row["id"]], row["events"])["certified"]
-                    for row in packets
+                    (
+                        packet_check(episodes[row["id"]], row["events"])["certified"]
+                        for row in packets
+                    )
                 ),
                 count,
             )

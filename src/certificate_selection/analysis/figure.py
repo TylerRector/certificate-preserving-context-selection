@@ -8,7 +8,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from storage import ROOT
+from certificate_selection.storage import ROOT
 
 
 def main():
@@ -40,7 +40,7 @@ def main():
         ("32b", "multi_candidate"),
         ("32b", "certificate_greedy"),
     ]
-    raw, grounded = [], []
+    raw, grounded = ([], [])
     for model, method in points:
         row = data["readers"][model]["metrics"]["all"][method]
         raw.append(100 * row["correct"] / row["n"])

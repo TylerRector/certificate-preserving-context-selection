@@ -1,9 +1,18 @@
 import gzip
+import hashlib
 import json
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
-TOKENIZER = ROOT / "reference/tokenizer"
+ROOT = Path(__file__).resolve().parents[2]
+TOKENIZER = ROOT / "assets/tokenizer"
+
+
+def source_hashes():
+    package = Path(__file__).resolve().parent
+    return {
+        str(path.relative_to(package)): hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in sorted(package.rglob("*.py"))
+    }
 
 
 def resolve(path):
