@@ -1,6 +1,6 @@
 # Certificate-Preserving Context Selection
 
-Code and saved data for **Certificate-Preserving Context Selection for Multi-Agent Oversight**. Includes the four-seed experiment, long-context checks, 14B/32B reader outputs, and preliminary RECOMP tests. Methods use the paper's names: **Multi-candidate certificate selection**, **Certificate-greedy selection**, and **Okapi BM25**.
+Code and saved data for Certificate-Preserving Context Selection for Multi-Agent Oversight. Includes the four-seed experiment, long-context checks, 14B/32B reader outputs, and preliminary RECOMP tests. Methods use the paper's names: Multi-candidate certificate selection, Certificate-greedy selection, and Okapi BM25.
 
 Recreate Figure 1, Tables 1–2, paired tests, and data audits with Python 3.11+:
 
