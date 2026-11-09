@@ -1,0 +1,32 @@
+{
+  "version": "certificate-preserving-context-selection-v1",
+  "created": "2026-11-09T00:24:15.299029+00:00",
+  "seeds": [
+    17011,
+    29023,
+    43037,
+    61043
+  ],
+  "per_seed": 512,
+  "primary_roots": 2048,
+  "reader_per_seed": 20,
+  "primary_source_tokens": 16384,
+  "primary_packet_budget": 2048,
+  "methods": [
+    "multi_candidate",
+    "certificate_greedy",
+    "okapi_bm25"
+  ],
+  "strong_baseline": "certificate_greedy",
+  "long_roots": 96,
+  "data_randomness": "Four independent fixed seeds; root-specific hash streams; deterministic greedy model decoding",
+  "primary_tests": [
+    "certificate_vs_strong",
+    "causal_pair_certificate_vs_strong"
+  ],
+  "alpha_each": 0.025,
+  "tokenizer_template_hash": "41d5929bf73796beb66809ac700b2cf3ff81694f933e5c14d52b7fd6963c947d",
+  "trust": "Authenticated collector snapshots/receipts; no resistance to collector compromise",
+  "reader_status": "exploratory; 14B/32B, not 72B",
+  "source_format": "Readable JSON events with explicit binding fields; collector frontier counts toward packet cost"
+}

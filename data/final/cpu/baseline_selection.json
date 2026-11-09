@@ -1,0 +1,15 @@
+{
+  "split": "dev",
+  "roots": 32,
+  "scores": {
+    "certificate_greedy": {
+      "certified": 32,
+      "tokens": 39256
+    },
+    "dependency_closure": {
+      "certified": 27,
+      "tokens": 48207
+    }
+  },
+  "selected": "certificate_greedy"
+}

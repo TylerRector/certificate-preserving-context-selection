@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "cases": 8,
+  "per_checkpoint": {
+    "nq": 8,
+    "hotpotqa": 8
+  },
+  "runtime_seconds": 18.11099648097297
+}

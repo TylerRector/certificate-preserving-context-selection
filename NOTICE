@@ -1,0 +1,10 @@
+RECOMP extractive scoring follows the mean-pooling and dot-product implementation
+in carriex/recomp, commit 51d4432151efb3275257a9407dc71d1e5ec6634d.
+Copyright (c) 2023 Fangyuan Xu. Its MIT license is in licenses/RECOMP.
+
+The released Natural Questions and HotpotQA weights are downloaded separately
+at the revisions recorded in data/models.json.
+
+Native tokenizer assets are from Qwen/Qwen3-14B, revision
+40c069824f4251a91eefaf281ebe4c544efd3e18. Its Apache 2.0 license is
+in licenses/Qwen3-14B.

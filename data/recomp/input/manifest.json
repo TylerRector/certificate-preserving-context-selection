@@ -1,0 +1,60 @@
+{
+  "created": "2026-11-09T01:31:06.017561+00:00",
+  "study": "preliminary external RECOMP transfer test",
+  "roots": [
+    "eval/17011/157",
+    "eval/17011/70",
+    "eval/29023/215",
+    "eval/29023/252",
+    "eval/43037/484",
+    "eval/43037/488",
+    "eval/61043/116",
+    "eval/61043/54"
+  ],
+  "seeds": [
+    17011,
+    29023,
+    43037,
+    61043
+  ],
+  "cases": 8,
+  "selection": "two roots per seed by fixed outcome-independent hash among existing 80 reader roots",
+  "source_sha256": "4b89b44a31c3a850b528c6a185af01f544fb151ad94ac0b57d116f1edf068fb2",
+  "checkpoints": {
+    "nq": {
+      "repo": "fangyuan/nq_extractive_compressor",
+      "revision": "46f98c1f57fa919c72d86ced16e3ece3403f9e9e",
+      "files": {
+        "config_sentence_transformers.json": "a754c4cbd6b0742c18d4725ee937f77a73308540436e781e97f8de7eb611bfdf",
+        "modules.json": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460",
+        "config.json": "08628ac4e1ce0fbbe523e4d321dacaceb3f640e77a155f2e04fbef13889f9ba1",
+        "sentence_bert_config.json": "8e33fd9a8b56b057ab82bcba899e699675d058547009181b3b9ecf66c7c6284d",
+        "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+        "tokenizer_config.json": "097b20b3caacadf13af145dc834461b8d81f235399c61cc0efa8712048467b49",
+        "tokenizer.json": "4e09bc048e215b6c9512d0445ce5e94894a86ea69198fd64daab7910a772ea66",
+        "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "pytorch_model.bin": "525cc39d2ca54b5af6de503d6b9d5f1832111b8521f65eb69e2b85d3d8abaff2"
+      }
+    },
+    "hotpotqa": {
+      "repo": "fangyuan/hotpotqa_extractive_compressor",
+      "revision": "25d11ad98ac802590c903af50d8735049679e8ef",
+      "files": {
+        "config.json": "08628ac4e1ce0fbbe523e4d321dacaceb3f640e77a155f2e04fbef13889f9ba1",
+        "modules.json": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460",
+        "config_sentence_transformers.json": "a754c4cbd6b0742c18d4725ee937f77a73308540436e781e97f8de7eb611bfdf",
+        "sentence_bert_config.json": "8e33fd9a8b56b057ab82bcba899e699675d058547009181b3b9ecf66c7c6284d",
+        "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+        "tokenizer_config.json": "097b20b3caacadf13af145dc834461b8d81f235399c61cc0efa8712048467b49",
+        "tokenizer.json": "4e09bc048e215b6c9512d0445ce5e94894a86ea69198fd64daab7910a772ea66",
+        "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "pytorch_model.bin": "10108c9f3d4add5785a3d3f6f97cdf58befda3742d26c5d14c12df554e14579b"
+      }
+    }
+  },
+  "upstream_repo": "https://github.com/carriex/recomp",
+  "upstream_commit": "51d4432151efb3275257a9407dc71d1e5ec6634d",
+  "inference": "zero shot; authors weights unchanged; mean pooling and dot product as official code; no local training",
+  "scope": "Whole-event extraction adapter, not a native QA benchmark reproduction; 8 cases are not powered for significance",
+  "arms": "Raw action-only anchor and shared action/frontier/current-policy anchor; reader uses the latter stronger arm; all header tokens charged."
+}

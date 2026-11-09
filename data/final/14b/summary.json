@@ -1,0 +1,49 @@
+{
+  "status": "complete",
+  "planned_main": 240,
+  "completed_main": 240,
+  "planned_full": 8,
+  "completed_full": 8,
+  "full_arm_admitted": true,
+  "unique_requests": 189,
+  "runtime_seconds": 790.5415637229453,
+  "peak_cuda_bytes": 34671576064,
+  "metrics": {
+    "okapi_bm25": {
+      "n": 80,
+      "accuracy": 0.325,
+      "packet_supported_accuracy": 0.0,
+      "citation_grounded_accuracy": 0.0,
+      "false_approvals": 3,
+      "violation_n": 25,
+      "invalid": 0,
+      "output_cap_hit": 0
+    },
+    "certificate_greedy": {
+      "n": 80,
+      "accuracy": 0.4375,
+      "packet_supported_accuracy": 0.4,
+      "citation_grounded_accuracy": 0.225,
+      "false_approvals": 13,
+      "violation_n": 25,
+      "invalid": 1,
+      "output_cap_hit": 0
+    },
+    "multi_candidate": {
+      "n": 80,
+      "accuracy": 0.45,
+      "packet_supported_accuracy": 0.4125,
+      "citation_grounded_accuracy": 0.2125,
+      "false_approvals": 13,
+      "violation_n": 25,
+      "invalid": 1,
+      "output_cap_hit": 0
+    }
+  },
+  "per_seed_completed": {
+    "17011": 60,
+    "29023": 60,
+    "43037": 60,
+    "61043": 60
+  }
+}

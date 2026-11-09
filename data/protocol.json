@@ -1,0 +1,83 @@
+{
+  "seeds": [
+    17011,
+    29023,
+    43037,
+    61043
+  ],
+  "roots_per_seed": 512,
+  "primary_roots": 2048,
+  "related_worlds_per_root": 3,
+  "primary_source_target_tokens": 16384,
+  "source_tolerance_tokens": 300,
+  "primary_packet_budget": 2048,
+  "methods": [
+    "multi_candidate",
+    "certificate_greedy",
+    "okapi_bm25"
+  ],
+  "candidate_limit": 24,
+  "development_roots": 32,
+  "primary_tests": {
+    "primary_certificate": {
+      "unit": "root",
+      "alpha": 0.025
+    },
+    "both_causal_worlds_certified": {
+      "unit": "root",
+      "alpha": 0.025
+    }
+  },
+  "long_context": {
+    "roots": 96,
+    "source_targets": [
+      16384,
+      65536,
+      114688
+    ],
+    "packet_budgets": [
+      1024,
+      2048,
+      4096
+    ]
+  },
+  "readers": {
+    "sizes": [
+      "14b",
+      "32b"
+    ],
+    "roots_per_seed": 20,
+    "controls": 12,
+    "qualification_threshold": 0.9,
+    "decode": {
+      "do_sample": false,
+      "enable_thinking": false,
+      "max_new_tokens": 512
+    },
+    "full_source_cases_per_model": 8
+  },
+  "preliminary_recomp": {
+    "roots": 8,
+    "roots_per_seed": 2,
+    "source": "subset of the same 80 reader roots",
+    "unit": "whole JSON event",
+    "encoder_window": 512,
+    "reader_arms": "anchored",
+    "shared_headers": [
+      "action",
+      "current_policy",
+      "collector_snapshot"
+    ],
+    "checkpoints": [
+      "recomp-nq",
+      "recomp-hotpotqa"
+    ],
+    "training": "none"
+  },
+  "trusted_boundary": [
+    "collector_identity",
+    "collector_snapshot_completeness",
+    "collector_receipts"
+  ],
+  "omission_semantics": "Unobserved packet facts allow all compatible values; an unsupported UNKNOWN is not certified."
+}

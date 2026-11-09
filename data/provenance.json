@@ -1,0 +1,175 @@
+{
+  "study": "Certificate-Preserving Context Selection for Multi-Agent Oversight",
+  "seeds": [
+    17011,
+    29023,
+    43037,
+    61043
+  ],
+  "primary_roots": 2048,
+  "reader_roots": 80,
+  "preliminary_recomp_roots": 8,
+  "source_runs": [
+    "64270",
+    "64307"
+  ],
+  "normalization": "Method identifiers match paper terminology; source event contents, prompt token arrays and model generations are unchanged. JSONL artifacts use deterministic gzip compression. Original artifact hashes identify the private research archive.",
+  "artifacts": [
+    {
+      "path": "data/final/14b/manifest.json",
+      "original_sha256": "d228650abe7c0868ffe11930b57a023efd4ad1fdb31acc156b3f7dc5c74a604e"
+    },
+    {
+      "path": "data/final/14b/qualification.json",
+      "original_sha256": "7e58b9d8e070adfabcf6a115c6d7a16ae8cbe1fcd5d8f7106e644dedd6880d04"
+    },
+    {
+      "path": "data/final/14b/requests.jsonl.gz",
+      "original_sha256": "784147097b8f5ee32d3e4ea9290810783f520dde08cba7f5cc7a462941c0f4ae"
+    },
+    {
+      "path": "data/final/14b/responses.jsonl.gz",
+      "original_sha256": "38b2747b050cc175c26e9acb96a18a42ade9bdb72cd93532ebdc0a9d8d5a996b"
+    },
+    {
+      "path": "data/final/14b/summary.json",
+      "original_sha256": "03a9c6fadec96f4ff607fbe5e95a2d8a557a825e38e2a885af101745c658546a"
+    },
+    {
+      "path": "data/final/32b/manifest.json",
+      "original_sha256": "630447631c6c1432ce1dc5ed78430c1b9dfeb6093770eefd0304ed91e49c41ec"
+    },
+    {
+      "path": "data/final/32b/qualification.json",
+      "original_sha256": "b260f6197a8b85bf13a7f21e72141eedaa2afd3d9f3da71f047e54de1733d956"
+    },
+    {
+      "path": "data/final/32b/requests.jsonl.gz",
+      "original_sha256": "0f22932e2139c0a77f48b64b12291757faf4681eb2525e88d258ccd9f650b2e5"
+    },
+    {
+      "path": "data/final/32b/responses.jsonl.gz",
+      "original_sha256": "f4e249dc2f983db11b9b3721842675b1acd5356f8acdb3bfb7401f52e742dfa3"
+    },
+    {
+      "path": "data/final/32b/summary.json",
+      "original_sha256": "cec39500aabadd6dc7875c86f9ba378fc56fab807a2ac1a6528d2d130d8ebc57"
+    },
+    {
+      "path": "data/final/analysis_environment.json",
+      "original_sha256": "da25a3078acc37f6494fbeecf58c709acf86b120b4d9522fc433513682acd425"
+    },
+    {
+      "path": "data/final/cpu/baseline_selection.json",
+      "original_sha256": "0c04b16735bf6bf1f39beea50b82456b30b2f0596194eb6800ecc057663cf68c"
+    },
+    {
+      "path": "data/final/cpu/cpu_metrics.json",
+      "original_sha256": "8dcc5993663ccd61dce46028af7faf298ff04ed53da82dde0e9d4f15c1f363b2"
+    },
+    {
+      "path": "data/final/cpu/cpu_summary.json",
+      "original_sha256": "4395c7ce89edbf38f5ead15d5b6ab0532a51468db3a2b43b79de0e20a80c8fec"
+    },
+    {
+      "path": "data/final/cpu/episodes.jsonl.gz",
+      "original_sha256": "6370cab58754a5cba7a8d1af73b4bab4b8038c86edda9a3b78927309b43e92a8"
+    },
+    {
+      "path": "data/final/cpu/long_packets.jsonl.gz",
+      "original_sha256": "621aaa586591b2bd474760cb9b8716f62a88dac1b0f2fc3618b7a1d8c099e93b"
+    },
+    {
+      "path": "data/final/cpu/manifest.json",
+      "original_sha256": "1927a921ab16860ec683b3a6706d49a39175e1970378c1eb34049cc26891b251"
+    },
+    {
+      "path": "data/final/cpu/minimality.json",
+      "original_sha256": "2c2ee7e67c0979357c8d47e0a850a6ef6a7bf91c9458d4101941c9ed9258b60b"
+    },
+    {
+      "path": "data/final/cpu/packets.jsonl.gz",
+      "original_sha256": "1e796c43f74f9e9351c4122d653871a6e340321cda5a58dec8aba0ac85686b5c"
+    },
+    {
+      "path": "data/final/cpu/reader_controls.jsonl.gz",
+      "original_sha256": "f1397d8f25d5a4b4a28e1a97a6584cca1986cd8eae28054b11e51d7c5789c88c"
+    },
+    {
+      "path": "data/final/cpu/reader_full_jobs.jsonl.gz",
+      "original_sha256": "8c41719fc2d3915e12df30ee65c5a631ce3de479063dc97d4183581bc5d52b73"
+    },
+    {
+      "path": "data/final/cpu/reader_jobs.jsonl.gz",
+      "original_sha256": "8af72d454885470a405c27d1ab97f3471f427a1f42dd3a00fa37affd6c6a8d5d"
+    },
+    {
+      "path": "data/recomp/32b/manifest.json",
+      "original_sha256": "61a1ff95800ed11efebcb83e6173fe27a3a33d7a3e6e7d3bab1febb38d5e03c9"
+    },
+    {
+      "path": "data/recomp/32b/qualification.json",
+      "original_sha256": "b260f6197a8b85bf13a7f21e72141eedaa2afd3d9f3da71f047e54de1733d956"
+    },
+    {
+      "path": "data/recomp/32b/requests.jsonl.gz",
+      "original_sha256": "1caa5a6c11f6e92e6aaef5ec72a09b22e3f33e1eb2b8dc4ebecbbcb9ad5a081e"
+    },
+    {
+      "path": "data/recomp/32b/responses.jsonl.gz",
+      "original_sha256": "234030728a6444c3187bdddea7784483ba6a2b84265b84963e5d0eaf942e3047"
+    },
+    {
+      "path": "data/recomp/32b/summary.json",
+      "original_sha256": "bfd272922193d15ba199d382a0f681eb783c6a1769d8010e928f566542a61ebf"
+    },
+    {
+      "path": "data/recomp/compression/hotpot_loading.json",
+      "original_sha256": "d90a11062ae53b025de58d53df659f6706d2e955ac476b6719232c51a2a8d24a"
+    },
+    {
+      "path": "data/recomp/compression/manifest.json",
+      "original_sha256": "14956e08b5f4414b090343cf8dcab328307c7a80aeb23e1f4562f030bb8c7283"
+    },
+    {
+      "path": "data/recomp/compression/nq_loading.json",
+      "original_sha256": "d90a11062ae53b025de58d53df659f6706d2e955ac476b6719232c51a2a8d24a"
+    },
+    {
+      "path": "data/recomp/compression/packets.jsonl.gz",
+      "original_sha256": "3a42c15c576fb152ecaaa7a285e87f304f0a9a25a53bc1113fe70e71e8fcb184"
+    },
+    {
+      "path": "data/recomp/compression/rankings.jsonl.gz",
+      "original_sha256": "e5b00bc2eb8f3950120c84aa3ce2da8909ba680893cc94e9390b9ffb49a07056"
+    },
+    {
+      "path": "data/recomp/compression/reader_controls.jsonl.gz",
+      "original_sha256": "f1397d8f25d5a4b4a28e1a97a6584cca1986cd8eae28054b11e51d7c5789c88c"
+    },
+    {
+      "path": "data/recomp/compression/reader_jobs.jsonl.gz",
+      "original_sha256": "b637b779ceac00c9b762fc6139c8187f60dfd7aa51336ca5995ba9a1e3591344"
+    },
+    {
+      "path": "data/recomp/compression/summary.json",
+      "original_sha256": "8a73b0e5b23760f012e99bcc9ea9c815cf3e23e464d276dbf4e8402ad1e42430"
+    },
+    {
+      "path": "data/recomp/input/episodes.jsonl.gz",
+      "original_sha256": "4b89b44a31c3a850b528c6a185af01f544fb151ad94ac0b57d116f1edf068fb2"
+    },
+    {
+      "path": "data/recomp/input/existing_32b.jsonl.gz",
+      "original_sha256": "caab10a02c4576b28dea8b77b5f25e96b7affe11579f6d31bc85ec48d9d98b16"
+    },
+    {
+      "path": "data/recomp/input/manifest.json",
+      "original_sha256": "99c5b6da50488ded27273a6b2e1ebf1388efc8827832f1568a9907546bb2bc9c"
+    },
+    {
+      "path": "data/recomp/input/reader_controls.jsonl.gz",
+      "original_sha256": "f1397d8f25d5a4b4a28e1a97a6584cca1986cd8eae28054b11e51d7c5789c88c"
+    }
+  ]
+}

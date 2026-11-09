@@ -1,0 +1,39 @@
+{
+  "status": "complete",
+  "planned_main": 16,
+  "completed_main": 16,
+  "planned_full": 0,
+  "completed_full": 0,
+  "full_arm_admitted": true,
+  "unique_requests": 28,
+  "runtime_seconds": 179.78652443602914,
+  "peak_cuda_bytes": 66493816832,
+  "metrics": {
+    "recomp_hotpotqa_anchored": {
+      "n": 8,
+      "accuracy": 0.375,
+      "packet_supported_accuracy": 0.0,
+      "citation_grounded_accuracy": 0.0,
+      "false_approvals": 2,
+      "violation_n": 4,
+      "invalid": 0,
+      "output_cap_hit": 0
+    },
+    "recomp_nq_anchored": {
+      "n": 8,
+      "accuracy": 0.25,
+      "packet_supported_accuracy": 0.0,
+      "citation_grounded_accuracy": 0.0,
+      "false_approvals": 3,
+      "violation_n": 4,
+      "invalid": 0,
+      "output_cap_hit": 0
+    }
+  },
+  "per_seed_completed": {
+    "17011": 4,
+    "29023": 4,
+    "43037": 4,
+    "61043": 4
+  }
+}
